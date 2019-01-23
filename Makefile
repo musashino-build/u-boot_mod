@@ -29,6 +29,9 @@ export BUILD_TOPDIR = $(PWD)
 export STAGING_DIR  = $(BUILD_TOPDIR)/tmp
 export SOURCE_DIR   = $(BUILD_TOPDIR)/u-boot
 export BIN_DIR      = $(BUILD_TOPDIR)/bin
+
+export MAKECMD=make --silent ARCH=mips
+export PATH:=$(BUILD_TOPDIR)/toolchain/bin/:$(PATH)
 export SUB_MAKE_CMD = $(MAKE) --silent --no-print-directory \
                       ARCH=mips V=1 SHELL=$(SHELL)
 
