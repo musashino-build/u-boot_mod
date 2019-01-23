@@ -180,7 +180,9 @@ U_BOOT_CMD(startsc, 1, 0, do_start_sc, "start serial console\n", NULL);
 
 #endif /* if defined(CONFIG_NETCONSOLE) */
 
-#if defined(CONFIG_CMD_ENV) && defined(CONFIG_CMD_FLASH)
+#if defined(CONFIG_CMD_ENV) &&\
+    defined(CONFIG_CMD_FLASH) &&\
+   !defined(CFG_ENV_IS_NOWHERE)
 /*
  * Erase environment sector
  */

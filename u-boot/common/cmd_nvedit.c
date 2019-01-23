@@ -539,6 +539,7 @@ int getenv_r(char *name, char *buf, unsigned len){
 }
 #endif
 
+#ifndef CFG_ENV_IS_NOWHERE
 #if defined(CFG_ENV_IS_IN_NVRAM)  ||\
     defined(CFG_ENV_IS_IN_EEPROM) ||\
     (defined(CONFIG_CMD_ENV) && defined(CONFIG_CMD_FLASH)) ||\
@@ -552,6 +553,7 @@ int do_saveenv(cmd_tbl_t *cmdtp, int flag, int argc, char *argv[]){
 }
 
 #endif
+#endif /* !CFG_ENV_IS_NOWHERE */
 
 /************************************************************************
  * Match a name / name=value pair
@@ -584,12 +586,14 @@ U_BOOT_CMD(setenv, CFG_MAXARGS, 0, do_setenv, "set environment variables\n",
 	"setenv name\n"
 	"\t- delete environment variable 'name'\n");
 
+#ifndef CFG_ENV_IS_NOWHERE
 #if defined(CFG_ENV_IS_IN_NVRAM)  ||\
     defined(CFG_ENV_IS_IN_EEPROM) ||\
     (defined(CONFIG_CMD_ENV) && defined(CONFIG_CMD_FLASH)) ||\
     (defined(CONFIG_CMD_ENV) && defined(CONFIG_CMD_NAND))
 U_BOOT_CMD(saveenv, 1, 0, do_saveenv, "save environment variables to FLASH\n", NULL);
 #endif
+#endif /* !CFG_ENV_IS_NOWHERE */
 
 #if defined(CONFIG_CMD_ASKENV)
 U_BOOT_CMD(

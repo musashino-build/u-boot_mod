@@ -37,6 +37,11 @@
 
 	#define CONFIG_QCA_GPIO_MASK_LED_ACT_L	GPIO13 | GPIO14
 
+#elif defined(CONFIG_FOR_NEC_WR8750N)
+
+	#define CONFIG_QCA_GPIO_MASK_IN		GPIO16
+	#define CONFIG_QCA_GPIO_MASK_OUT_INIT_H	GPIO13
+
 #elif defined(CONFIG_FOR_TPLINK_MR3420_V2)
 
 	#define CONFIG_QCA_GPIO_MASK_LED_ACT_L	GPIO11 | GPIO12 | GPIO13 |\
@@ -110,6 +115,10 @@
 				"rootfstype=squashfs init=/sbin/init "\
 				"mtdparts=ath-nor0:256k(u-boot),64k(u-boot-env),16000k(firmware),64k(art)ro"
 
+#elif defined(CONFIG_FOR_NEC_WR8750N)
+
+	/* nothing */
+
 #elif defined(CONFIG_FOR_TPLINK_WDR3500_V1) ||\
       defined(CONFIG_FOR_TPLINK_WDR3600_V1) ||\
       defined(CONFIG_FOR_TPLINK_WDR43X0_V1)
@@ -149,6 +158,10 @@
 #elif defined(CONFIG_FOR_GLINET_GL_AR300)
 
 	#define CFG_LOAD_ADDR		0x9F050000
+
+#elif defined(CONFIG_FOR_NEC_WR8750N)
+
+	#define CFG_LOAD_ADDR		0x9F040000
 
 #elif defined(CONFIG_FOR_YUNCORE_CPE870)
 
@@ -225,6 +238,12 @@
 	#define OFFSET_MAC_DATA_BLOCK_LENGTH	0x010000
 	#define OFFSET_MAC_ADDRESS		0x000000
 
+#elif defined(CONFIG_FOR_NEC_WR8750N)
+
+	#define OFFSET_MAC_DATA_BLOCK		0x020000
+	#define OFFSET_MAC_DATA_BLOCK_LENGTH	0x010000
+	#define OFFSET_MAC_ADDRESS		0x000006
+
 #else
 
 	#define OFFSET_MAC_DATA_BLOCK		0x010000
@@ -254,6 +273,34 @@
 	#undef CONFIG_CMD_SNTP
 	#undef CONFIG_UPG_SCRIPTS_FW
 	#undef CONFIG_UPG_SCRIPTS_UBOOT
+
+/*
+ * - NEC Aterm WR8750N uses 9600bps as the
+ *   baudrate in the stock bootloader/firmware
+ * - all LEDs are connected to ath9k chip
+ * - there is no u-boot-env partition
+ * - OEM bootloader uses 192.168.0.1 as the
+ * 	device ip
+ */
+#elif defined(CONFIG_FOR_NEC_WR8750N)
+
+	#undef CONFIG_BAUDRATE
+	#define CONFIG_BAUDRATE	9600
+	#undef CONFIG_IPADDR
+	#undef CONFIG_SERVERIP
+	#define CONFIG_IPADDR	192.168.0.1
+	#define CONFIG_SERVERIP	192.168.0.2
+	#undef CONFIG_NETCONSOLE
+	#undef CONFIG_NETCONSOLE_PORT
+	#undef CFG_ENV_IS_IN_FLASH
+	#define CFG_ENV_IS_NOWHERE
+	#undef CONFIG_CMD_DHCP
+	#undef CONFIG_CMD_HTTPD
+	#undef CONFIG_CMD_LED
+	#undef CONFIG_CMD_MAC
+	#undef CONFIG_UPG_SCRIPTS_FW
+	#undef CONFIG_UPG_SCRIPTS_UBOOT
+	#undef CONFIG_BTN_RECOVERY_SCRIPT
 
 #endif
 
