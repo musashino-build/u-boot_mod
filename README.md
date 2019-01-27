@@ -34,8 +34,9 @@ Supported devices
 
 Currently supported devices:
 
-- **Atheros AR9342**:
+- **Atheros AR9344**:
   - NEC Aterm WR8750N
+  - NEC Aterm WR9500N
 
 I tested this modification on Aterm WR8750N, with OpenWrt firmware. If you are not sure about the version of your device, please contact with me **before** you try to make an upgrade. Changing bootloader to a wrong version will probably damage your router and you will need special hardware to fix it, so please, **be very careful**.
 
@@ -44,6 +45,7 @@ More information about supported devices:
 | Model | SoC | FLASH | RAM | U-Boot image | U-Boot env |
 |:--- | :--- | ---: | ---: | ---: | ---: |
 | NEC Aterm WR8750N | AR9344 | 8 MiB | 128 MiB DDR2 | 128 KiB | (None) |
+| NEC Aterm WR9500N | AR9344 | 16 MiB | 128 MiB DDR2 | 128 KiB | (None) |
 
 *(LZMA) - U-Boot binary image is compressed with LZMA.*
 *(R/W) - environment exists in separate FLASH block which allows you to save it and keep after power down.*

@@ -210,7 +210,8 @@ endef
 # TARGETS IN ALPHABETICAL ORDER, SHARED FIRST
 # ===========================================
 
-nec_wr8750n:
+nec_wr8750n \
+nec_wr9500n:
 	@$(call build,128,0,ETH_CONFIG=_s17)
 
 # =============
