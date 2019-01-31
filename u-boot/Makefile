@@ -395,7 +395,7 @@ lsdk_kernel:
 # =============================
 
 nec_wr8750n: ar934x_common lsdk_kernel
-	@$(call config_init,NEC Aterm WR8750N,wr8750n,8,17,1,QCA_AR9344_SOC)
+	@$(call config_init,NEC Aterm WR8750N,wr8750n,8,15,1,QCA_AR9344_SOC)
 	@$(call define_add,CONFIG_FOR_NEC_WR8750N,1)
 	@$(call define_add,CONFIG_USB,1)
 	@$(call define_add,CFG_ATHRS17_PHY,1)
@@ -405,7 +405,7 @@ nec_wr8750n: ar934x_common lsdk_kernel
 	@$(MKCONFIG) -a db12x mips mips db12x ar7240 ar7240
 
 nec_wr9500n: ar934x_common lsdk_kernel
-	@$(call config_init,NEC Aterm WR9500N,wr9500n,16,17,1,QCA_AR9344_SOC)
+	@$(call config_init,NEC Aterm WR9500N,wr9500n,16,15,1,QCA_AR9344_SOC)
 	@$(call define_add,CONFIG_FOR_NEC_WR9500N,1)
 	@$(call define_add,CONFIG_USB,1)
 	@$(call define_add,CFG_ATHRS17_PHY,1)
