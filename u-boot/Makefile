@@ -409,6 +409,9 @@ nec_wr8750n: nec_ar934x_common
 nec_wr9500n: nec_ar934x_common
 	@$(call config_init,NEC Aterm WR9500N,wr9500n,16,15,1,QCA_AR9344_SOC)
 
+nec_wg600hp: nec_ar934x_common
+	@$(call config_init,NEC Aterm WG600HP,wg600hp,8,15,1,QCA_AR9344_SOC)
+
 # =============
 # CLEAN TARGETS
 # =============
