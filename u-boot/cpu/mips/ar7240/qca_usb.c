@@ -13,7 +13,8 @@
 
 void usb_init(void)
 {
-#if (SOC_TYPE & QCA_QCA953X_SOC)
+#if (SOC_TYPE & QCA_QCA953X_SOC) || \
+    (SOC_TYPE & QCA_AR934X_SOC)
 	u32 val;
 
 	/* Select REFCLK USB PLL input */
