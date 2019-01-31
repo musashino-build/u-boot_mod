@@ -21,8 +21,7 @@
  * GPIO configuration
  * ==================
  */
-#if defined(CONFIG_FOR_NEC_WR8750N) || \
-    defined(CONFIG_FOR_NEC_WR9500N)
+#if defined(CONFIG_FOR_NEC_AR934X)
 
 	#define CONFIG_QCA_GPIO_MASK_IN		GPIO16
 	#define CONFIG_QCA_GPIO_MASK_OUT_INIT_H	GPIO13
@@ -34,8 +33,7 @@
  * Default bootargs
  * ================
  */
-#if defined(CONFIG_FOR_NEC_WR8750N) || \
-    defined(CONFIG_FOR_NEC_WR9500N)
+#if defined(CONFIG_FOR_NEC_AR934X)
 
 	/* nothing */
 
@@ -52,8 +50,7 @@
  * Load address and boot command
  * =============================
  */
-#if defined(CONFIG_FOR_NEC_WR8750N) || \
-    defined(CONFIG_FOR_NEC_WR9500N)
+#if defined(CONFIG_FOR_NEC_AR934X)
 
 	#define CFG_LOAD_ADDR		0x9F040000
 
@@ -88,8 +85,7 @@
  * MAC address/es, model and WPS pin offsets in FLASH
  * ==================================================
  */
-#if defined(CONFIG_FOR_NEC_WR8750N) || \
-    defined(CONFIG_FOR_NEC_WR9500N)
+#if defined(CONFIG_FOR_NEC_AR934X)
 
 	#define OFFSET_MAC_DATA_BLOCK		0x020000
 	#define OFFSET_MAC_DATA_BLOCK_LENGTH	0x010000
@@ -119,8 +115,7 @@
  * - OEM bootloader uses 192.168.0.1 as the
  * 	device ip
  */
-#if defined(CONFIG_FOR_NEC_WR8750N) || \
-    defined(CONFIG_FOR_NEC_WR9500N)
+#if defined(CONFIG_FOR_NEC_AR934X)
 
 	#undef CONFIG_BAUDRATE
 	#define CONFIG_BAUDRATE	9600
