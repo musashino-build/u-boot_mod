@@ -390,12 +390,11 @@ qca953x_common: unconfig config_common
 lsdk_kernel:
 	@$(call define_add,CONFIG_LSDK_KERNEL,1)
 
-nec_ar934x_common: ar934x_common lsdk_kernel
+nec_ar9344_common: ar934x_common lsdk_kernel
 	@$(call define_add,CONFIG_FOR_NEC_AR934X,1)
 	@$(call define_add,CONFIG_USB,1)
 	@$(call define_add,CFG_ATHRS17_PHY,1)
 	@$(call define_add,CFG_AG7240_NMACS,1)
-	@$(call define_add,CONFIG_PCI,1)
 	@$(call define_add,CFG_DUAL_PHY_SUPPORT,1)
 	@$(MKCONFIG) -a db12x mips mips db12x ar7240 ar7240
 
@@ -403,13 +402,16 @@ nec_ar934x_common: ar934x_common lsdk_kernel
 # TARGETS IN ALPHABETICAL ORDER
 # =============================
 
-nec_wr8750n: nec_ar934x_common
+nec_wr8750n: nec_ar9344_common
+	@$(call define_add,CONFIG_PCI,1)
 	@$(call config_init,NEC Aterm WR8750N,wr8750n,8,15,1,QCA_AR9344_SOC)
 
-nec_wr9500n: nec_ar934x_common
+nec_wr9500n: nec_ar9344_common
+	@$(call define_add,CONFIG_PCI,1)
 	@$(call config_init,NEC Aterm WR9500N,wr9500n,16,15,1,QCA_AR9344_SOC)
 
-nec_wg600hp: nec_ar934x_common
+nec_wg600hp: nec_ar9344_common
+	@$(call define_add,CONFIG_PCI,1)
 	@$(call config_init,NEC Aterm WG600HP,wg600hp,8,15,1,QCA_AR9344_SOC)
 
 # =============
