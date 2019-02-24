@@ -410,6 +410,10 @@ nec_wr9500n: nec_ar9344_common
 	@$(call define_add,CONFIG_PCI,1)
 	@$(call config_init,NEC Aterm WR9500N,wr9500n,16,15,1,QCA_AR9344_SOC)
 
+nec_wg300hp: nec_ar9344_common
+	@$(call define_add,CONFIG_FOR_NEC_WG300HP,1)
+	@$(call config_init,NEC Aterm WG300HP,w3600hp,4,0,1,QCA_AR9342_SOC)
+
 nec_wg600hp: nec_ar9344_common
 	@$(call define_add,CONFIG_PCI,1)
 	@$(call config_init,NEC Aterm WG600HP,wg600hp,8,15,1,QCA_AR9344_SOC)

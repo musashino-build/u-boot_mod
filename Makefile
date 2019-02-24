@@ -212,6 +212,7 @@ endef
 
 nec_wr8750n \
 nec_wr9500n \
+nec_wg300hp \
 nec_wg600hp:
 	@$(call build,128,0,ETH_CONFIG=_s17)
 

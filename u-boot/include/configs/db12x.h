@@ -21,7 +21,13 @@
  * GPIO configuration
  * ==================
  */
-#if defined(CONFIG_FOR_NEC_AR934X)
+#if defined(CONFIG_FOR_NEC_WG300HP)
+
+	#define CONFIG_QCA_GPIO_MASK_LED_ACT_L	GPIO3  | GPIO4  | GPIO13 |\
+									GPIO16 | GPIO17
+	#define CONFIG_QCA_GPIO_MASK_IN		GPIO2
+
+#elif defined(CONFIG_FOR_NEC_AR934X)
 
 	#define CONFIG_QCA_GPIO_MASK_IN		GPIO16
 	#define CONFIG_QCA_GPIO_MASK_OUT_INIT_H	GPIO13
