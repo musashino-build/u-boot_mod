@@ -34,6 +34,9 @@ Supported devices
 
 Currently supported devices:
 
+- **Atheros AR9341**:
+  - NEC Aterm WR8175N
+
 - **Atheros AR9344**:
   - NEC Aterm WR8750N
   - NEC Aterm WR9500N
@@ -46,6 +49,7 @@ More information about supported devices:
 
 | Model | SoC | FLASH | RAM | U-Boot image | U-Boot env |
 |:--- | :--- | ---: | ---: | ---: | ---: |
+| NEC Aterm WR8750N | AR9341 | 4 MiB | 64 MiB DDR2 | 128 KiB | (None) |
 | NEC Aterm WR8750N | AR9344 | 8 MiB | 128 MiB DDR2 | 128 KiB | (None) |
 | NEC Aterm WR9500N | AR9344 | 16 MiB | 128 MiB DDR2 | 128 KiB | (None) |
 | NEC Aterm WG300HP | AR9342 | 4 MiB | 64 MiB DDR2 | 128 KiB | (None) |
